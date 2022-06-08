@@ -1,0 +1,76 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>PRODUCT</title>
+{{include ('layouts/login/head.html.twig')}}
+{{include ('layouts/site/head.html.twig')}}
+</head>
+<body>
+{{include ('layouts/site/spinner.html.twig')}}
+{{include ('layouts/site/navbar.html.twig')}}
+<div class="limiter">
+		<div class="container-login100">
+			<div class="wrap-login100">
+					<span class="login100-form-logo">
+						<i class="fa fa-3x fa-shopping-bag ">PRODUITS</i>
+					</span>
+
+					<span class="login100-form-title p-b-34 p-t-27">
+						LISTE DES PRODUITSS
+					</span>
+<div class="wrap-input100 validate-input">
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Utilisateur</th>
+                <th>Catégorie</th>
+                <th>Libelle</th>
+                <th>Quantité</th>
+                <th>Prix</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for produit in produits %}
+            <tr>
+                <td>{{ produit.id }}</td>
+                <td>{{ produit.users }}</td>
+                <td>{{ produit.categorie }}</td>
+                <td>{{ produit.libelle }}</td>
+                <td>{{ produit.qte }}</td>
+                <td>{{ produit.prix }}</td>
+                <td>
+                    <button class="btn">
+                    <a href="{{ path('app_produit_show', {'id': produit.id}) }}">VOIR</a>
+                    </button>
+                    
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="5">AUCUN PRODUIT TROUVÉ</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <button class="btn">
+    <a href="{{ path('app_produit_new') }}">CRÉER UN NOUVEAU PRODUIT </a>
+</button>
+
+                </div>
+                
+			</div>
+            {{ include ('layouts/site/newsletter.html.twig') }}
+            {{ include ('layouts/site/footer.html.twig') }}
+		</div>
+        
+	</div>
+{{include ('layouts/login/js.html.twig')}}
+{{include ('layouts/site/js.html.twig')}}
+
+</body>
+</html>

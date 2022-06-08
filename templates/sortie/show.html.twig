@@ -1,0 +1,64 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>RELEASE</title>
+{{include ('layouts/login/head.html.twig')}}
+{{include ('layouts/site/head.html.twig')}}
+</head>
+<body>
+{{include ('layouts/site/spinner.html.twig')}}
+{{include ('layouts/site/navbar.html.twig')}}
+<div class="limiter">
+		<div class="container-login100">
+			<div class="wrap-login100">
+					<span class="login100-form-logo">
+						<i class="fa fa-3x fa-laptop-code ">SORTIE</i>
+					</span>
+
+					<span class="login100-form-title p-b-34 p-t-27">
+						SORTIE SELECTIONNÉE
+					</span>
+<div class="wrap-input100 validate-input">
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ sortie.id }}</td>
+            </tr>
+            <tr>
+                <th>Produit</th>
+                <td>{{ sortie.produit }}</td>
+            </tr>
+            <tr>
+                <th>DateS</th>
+                <td>{{ sortie.dateS ? sortie.dateS|date('d-m-Y') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Quantité</th>
+                <td>{{ sortie.qteS }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+     <button class="btn">
+    <a href="{{ path('app_sortie_edit', {'id': sortie.id}) }}">APPORTER DES MODIFICATIONS</a>
+</button>
+    </br>
+    <button class="btn">
+     <a href="{{ path('app_sortie_index') }}">REVENIR À LA LISTE</a>
+     </button>
+</div>
+                
+			</div>
+            {{ include ('layouts/site/newsletter.html.twig') }}
+            {{ include ('layouts/site/footer.html.twig') }}
+		</div>
+        
+	</div>
+{{include ('layouts/login/js.html.twig')}}
+{{include ('layouts/site/js.html.twig')}}
+
+</body>
+</html>

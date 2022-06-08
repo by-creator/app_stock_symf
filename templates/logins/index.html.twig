@@ -1,0 +1,44 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>CONNEXION</title>
+{{include ('layouts/login/head.html.twig')}}
+{{include ('layouts/site/head.html.twig')}}
+</head>
+<body>
+
+<div class="limiter">
+		<div class="container-login100">
+			<div class="wrap-login100">
+					<span class="login100-form-logo">
+						<i class="fa fa-3x fa-user ">CONNEXION</i>
+					</span>
+
+					<span class="login100-form-title p-b-34 p-t-27">
+						FORMULAIRE DE CONNEXION
+					</span>
+
+					<div class="wrap-input100 validate-input">            
+                    {{ form(form) }}
+					<div class="text-center p-t-90">
+						<a class="txt1" href="{{path('app_user_new')}}">
+						
+							INSCRIPTION
+						</a>
+					</div>
+					</div>
+
+					
+				</div>
+            
+			</div>
+            
+		</div>
+        
+	</div>
+{{include ('layouts/login/js.html.twig')}}
+{{include ('layouts/site/js.html.twig')}}
+
+</body>
+</html>

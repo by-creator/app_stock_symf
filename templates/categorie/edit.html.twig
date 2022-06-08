@@ -1,0 +1,47 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>CATEGORY</title>
+{{include ('layouts/login/head.html.twig')}}
+{{include ('layouts/site/head.html.twig')}}
+</head>
+<body>
+{{include ('layouts/site/spinner.html.twig')}}
+{{include ('layouts/site/navbar.html.twig')}}
+<div class="limiter">
+		<div class="container-login100">
+			<div class="wrap-login100">
+					<span class="login100-form-logo">
+						<i class="fa fa-3x fa-bars ">CATÉGORIE</i>
+					</span>
+
+					<span class="login100-form-title p-b-34 p-t-27">
+						FORMULAIRE DE MODIFICATION DE CATÉGORIE
+					</span>
+<div class="wrap-input100 validate-input">
+
+    {{ include('categorie/_form.html.twig', {'button_label': 'MODIFIER'}) }}
+
+    {{ include('categorie/_delete_form.html.twig') }}
+
+                </div>
+
+				 <button class="btn">
+				<a href="{{ path('app_categorie_index') }}">REVENIR À LA LISTE</a>
+				</button>
+                
+			</div>
+            {{ include ('layouts/site/newsletter.html.twig') }}
+            {{ include ('layouts/site/footer.html.twig') }}
+		</div>
+        
+	</div>
+{{include ('layouts/login/js.html.twig')}}
+{{include ('layouts/site/js.html.twig')}}
+
+</body>
+</html>
+
+
+

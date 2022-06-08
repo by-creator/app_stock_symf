@@ -1,0 +1,65 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>PRODUCT</title>
+{{include ('layouts/login/head.html.twig')}}
+{{include ('layouts/site/head.html.twig')}}
+</head>
+<body>
+{{include ('layouts/site/spinner.html.twig')}}
+{{include ('layouts/site/navbar.html.twig')}}
+<div class="limiter">
+		<div class="container-login100">
+			<div class="wrap-login100">
+					<span class="login100-form-logo">
+						<i class="fa fa-3x fa-shopping-bag ">PRODUIT</i>
+					</span>
+
+					<span class="login100-form-title p-b-34 p-t-27">
+						PRODUIT SELECTIONNÉ
+					</span>
+<div class="wrap-input100 validate-input">
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ produit.id }}</td>
+            </tr>
+            <tr>
+                <th>Libelle</th>
+                <td>{{ produit.libelle }}</td>
+            </tr>
+            <tr>
+                <th>Qte</th>
+                <td>{{ produit.qte }}</td>
+            </tr>
+            <tr>
+                <th>Prix</th>
+                <td>{{ produit.prix }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    
+<button class="btn">
+    <a href="{{ path('app_produit_edit', {'id': produit.id}) }}">APPORTER DES MODIFICATIONS</a>
+</button>
+    </br>
+    <button class="btn">
+     <a href="{{ path('app_produit_index') }}">REVENIR À LA LISTE</a>
+     </button>
+</div>
+                
+			</div>
+            {{ include ('layouts/site/newsletter.html.twig') }}
+            {{ include ('layouts/site/footer.html.twig') }}
+		</div>
+        
+	</div>
+{{include ('layouts/login/js.html.twig')}}
+{{include ('layouts/site/js.html.twig')}}
+
+</body>
+</html>

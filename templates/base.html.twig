@@ -1,19 +1,52 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="UTF-8">
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
-        {# Run `composer require symfony/webpack-encore-bundle` to start using Symfony UX #}
-        {% block stylesheets %}
-            {{ encore_entry_link_tags('app') }}
-        {% endblock %}
+<html lang="en">
+{% include 'layouts/site/head.html.twig' %}
+<title>{% block title %}Welcome{% endblock %}</title>
+<body>
+    <div class="container-xxl bg-white p-0">
+    <!-- Spinner Start -->
+        <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+            <div class="spinner-grow text-primary" style="width: 3rem; height: 3rem;" role="status">
+                <span class="sr-only">Loading...</span>
+            </div>
+        </div>
+        <!-- Spinner End -->
+        <!-- Navbar & Hero Start -->
+        <div class="container-xxl position-relative p-0">
+            <nav class="navbar navbar-expand-lg navbar-light px-4 px-lg-5 py-3 py-lg-0">
+                <a href="/" class="navbar-brand p-0">
+                    <h1 class="m-0">APP STOCK</h1>
+                    <!-- <img src="{{asset('../site/img/logo.png')}}" alt="Logo"> -->
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+                    <span class="fa fa-bars"></span>
+                </button>
+                
+                </div>
+            </nav>
 
-        {% block javascripts %}
-            {{ encore_entry_script_tags('app') }}
-        {% endblock %}
-    </head>
-    <body>
-        {% block body %}{% endblock %}
-    </body>
+            <div class="container-xxl bg-primary hero-header">
+                <div class="container px-lg-5">
+                    <div class="row g-5 align-items-end">
+                        <div class="col-lg-6 text-center text-lg-start">
+                            <h1 class="text-white mb-4 animated slideInDown">Bienvenu(e) sur APP STOCK</h1>
+                            <p class="text-white pb-3 animated slideInDown">
+                            Votre plateforme de gestion de stock. Ici vous pouvez gérer vos catégories, les produits appartenant à chaque catégories, mais également
+                            gérer les entrées et sorties de chaque produits à une date bien définie.
+                            </p>
+                            <a href="{{path('app_logins')}}" class="btn btn-light py-sm-3 px-sm-5 rounded-pill animated slideInRight">COMMENCER</a>
+                        </div>
+                        <div class="col-lg-6 text-center text-lg-start">
+                            <img class="img-fluid animated zoomIn" src="{{asset('../site/img/hero.png')}}" alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% block body %}{% endblock %}
+        </div>
+        <!-- Navbar & Hero End -->
+    </div>
+    {% include 'layouts/site/js.html.twig' %}
+</body>
+
 </html>

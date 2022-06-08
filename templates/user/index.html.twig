@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>CONNEXION</title>
+	{% include 'layouts/site/head_login.html.twig' %}
+	</head>
+<body>
+	
+	<div class="limiter">
+		<div class="container-login100">
+			<div class="wrap-login100">
+				<div class="login100-pic js-tilt" data-tilt>
+					<img src="{{asset('login/images/img-01.png')}}" alt="IMG">
+				</div>
+
+                <div class="container col-md-6">
+                <span class="login100-form-title">
+						CONNEXION
+					</span>
+                 <div class="card ">
+                <div class="card-header">FORMULAIRE DE CONNEXION</div>
+                <div class="card-body"> 
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nom</th>
+                <th>Prenom</th>
+                <th>Email</th>
+                <th>Password</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for user in users %}
+            <tr>
+                <td>{{ user.id }}</td>
+                <td>{{ user.nom }}</td>
+                <td>{{ user.prenom }}</td>
+                <td>{{ user.email }}</td>
+                <td>{{ user.password }}</td>
+                <td>
+                    <a href="{{ path('app_user_show', {'id': user.id}) }}">show</a>
+                    <a href="{{ path('app_user_edit', {'id': user.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="6">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_user_new') }}">Create new</a>
+/div>
+                </div>
+                </div>
+				
+			</div>
+		</div>
+	</div>
+	
+	
+
+	
+{% include 'layouts/site/js_login.html.twig' %}
+
+</body>
+</html>

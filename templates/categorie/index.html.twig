@@ -1,0 +1,68 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>CATEGORY</title>
+{{include ('layouts/login/head.html.twig')}}
+{{include ('layouts/site/head.html.twig')}}
+</head>
+<body>
+{{include ('layouts/site/spinner.html.twig')}}
+{{include ('layouts/site/navbar.html.twig')}}
+<div class="limiter">
+		<div class="container-login100">
+			<div class="wrap-login100">
+					<span class="login100-form-logo">
+						<i class="fa fa-3x fa-bars ">CATÉGORIE</i>
+					</span>
+
+					<span class="login100-form-title p-b-34 p-t-27">
+						LISTE DES CATÉGORIES
+					</span>
+<div class="wrap-input100 validate-input">
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nom</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for categorie in categories %}
+            <tr>
+                <td>{{ categorie.id }}</td>
+                <td>{{ categorie.nom }}</td>
+                <td>
+                <button class="btn">
+                    <a href="{{ path('app_categorie_show', {'id': categorie.id}) }}">VOIR</a>
+                 </button>   
+                </td>
+               
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="3">AUCUNE CATÉGORIE TROUVÉE</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+<button class="btn">
+    <a href="{{ path('app_categorie_new') }}">CRÉER UNE NOUVELLE CATÉGORIE</a>
+</button>
+
+                </div>
+                
+			</div>
+            {{ include ('layouts/site/newsletter.html.twig') }}
+            {{ include ('layouts/site/footer.html.twig') }}
+		</div>
+        
+	</div>
+{{include ('layouts/login/js.html.twig')}}
+{{include ('layouts/site/js.html.twig')}}
+
+</body>
+</html>

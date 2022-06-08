@@ -1,0 +1,71 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>RELEASE</title>
+{{include ('layouts/login/head.html.twig')}}
+{{include ('layouts/site/head.html.twig')}}
+</head>
+<body>
+{{include ('layouts/site/spinner.html.twig')}}
+{{include ('layouts/site/navbar.html.twig')}}
+<div class="limiter">
+		<div class="container-login100">
+			<div class="wrap-login100">
+					<span class="login100-form-logo">
+						<i class="fa fa-3x fa-laptop-code ">SORTIES</i>
+					</span>
+
+					<span class="login100-form-title p-b-34 p-t-27">
+						LISTE DES SORTIES
+					</span>
+<div class="wrap-input100 validate-input">
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Produit</th>
+                <th>Date</th>
+                <th>Quantité</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for sortie in sorties %}
+            <tr>
+                <td>{{ sortie.id }}</td>
+                <td>{{ sortie.produit }}</td>
+                <td>{{ sortie.dateS ? sortie.dateS|date('d-m-Y') : '' }}</td>
+                <td>{{ sortie.qteS }}</td>
+                <td>
+                    <button class="btn">
+                    <a href="{{ path('app_sortie_show', {'id': sortie.id}) }}">VOIR</a>
+                    </button>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="4">AUCUNE SORTIE TROUVÉE</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+     <button class="btn">
+    <a href="{{ path('app_sortie_new') }}">CRÉER UNE NOUVELLE SORTIE  </a>
+</button>
+
+                </div>
+                
+			</div>
+            {{ include ('layouts/site/newsletter.html.twig') }}
+            {{ include ('layouts/site/footer.html.twig') }}
+		</div>
+        
+	</div>
+{{include ('layouts/login/js.html.twig')}}
+{{include ('layouts/site/js.html.twig')}}
+
+</body>
+</html>
