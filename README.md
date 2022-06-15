@@ -17,3 +17,15 @@ __mettre a jour le dossier public
 
  - créer un dossier nommé  "build" à l'intérieur du dossier "public"
  - déplacer tous les fichiers avec l'extension ".js" et ".css" se trouvant dans le dossier "public" à l'intérieur du dossier "build"
+
+__création de la base de données
+
+vérifier à l'intérieur du fichier .env le nom de la base de données puis créer dans Mysql
+
+__intégrer les miogrations
+
+pour se faire taper la commande suivante:
+
+php bin/console doctrine:migrations:migrate
+
+__présentation de la maquette
