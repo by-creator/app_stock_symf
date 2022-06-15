@@ -16,4 +16,4 @@ composer require symfony/asset
 __mettre a jour le dossier public 
 
  - créer un dossier nommé  "build" à l'intérieur du dossier "public"
- - déplacer tous les fichiers avec l'extension ".js" se trouvant dans le dossier "public" à l'intérieur du dossier "build"
+ - déplacer tous les fichiers avec l'extension ".js" et ".css" se trouvant dans le dossier "public" à l'intérieur du dossier "build"
